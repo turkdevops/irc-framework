@@ -15,7 +15,8 @@ const handlers = {
             hostname: command.hostname,
             new_nick: command.params[0],
             time: time,
-            tags: command.tags
+            tags: command.tags,
+            batch: command.batch
         });
     },
 
@@ -49,7 +50,8 @@ const handlers = {
             new_ident: command.params[0],
             new_hostname: command.params[1],
             time: time,
-            tags: command.tags
+            tags: command.tags,
+            batch: command.batch
         });
     },
 
@@ -63,7 +65,8 @@ const handlers = {
             hostname: command.hostname,
             new_gecos: command.params[0],
             time: time,
-            tags: command.tags
+            tags: command.tags,
+            batch: command.batch
         });
     },
 
@@ -99,7 +102,7 @@ const handlers = {
             nick: command.params[0],
             message: command.params[1] || '',
             time: time,
-            tags: command.tags,
+            tags: command.tags
         });
     },
 
@@ -287,6 +290,12 @@ const handlers = {
         const cache_key = command.params[1].toLowerCase();
         const cache = handler.cache('whois.' + cache_key);
         cache.country = command.params[command.params.length - 1];
+    },
+
+    RPL_WHOISASN: function(command, handler) {
+        const cache_key = command.params[1].toLowerCase();
+        const cache = handler.cache('whois.' + cache_key);
+        cache.asn = command.params[command.params.length - 1];
     },
 
     RPL_WHOISACTUALLY: function(command, handler) {

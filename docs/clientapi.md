@@ -13,7 +13,7 @@ new Irc.Client({
     enable_chghost: false,
     enable_echomessage: false,
     auto_reconnect: true,
-    auto_reconnect_wait: 4000,
+    auto_reconnect_max_wait: 300000,
     auto_reconnect_max_retries: 3,
     ping_interval: 30,
     ping_timeout: 120,
@@ -130,6 +130,15 @@ Create a channel object with the following methods:
 * `action(message)`
 * `part([part_message])`
 * `join([key])`
+
+##### `.caseCompare(string1, string2)`
+Compare two strings using the networks casemapping setting.
+
+##### `.caseUpper(string)`
+Uppercase the characters in string using the networks casemapping setting.
+
+##### `.caseLower(string)`
+Lowercase the characters in string using the networks casemapping setting.
 
 ##### `.match(match_regex, cb[, message_type])`
 Call `cb()` when any incoming message matches `match_regex`.
