@@ -22,7 +22,7 @@
     "brotli-webpack-plugin": "^1.1.0",
     "chai": "^4.2.0",
     "chai-subset": "^1.2.0",
-    "compression-webpack-plugin": "^8.0.1",
+    "compression-webpack-plugin": "^9.1.2",
     "eslint": "^7.5.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.20.2",
